@@ -1,9 +1,13 @@
+function removeButton (ul, i) {
+  const rButton = document.createElement("button")
 
-document.addEventListener("DOMContentLoaded", () => {
-  let taskListItem = new TaskListItem("Hi there.");
-  let taskListItem2 = new TaskListItem("Hey there.");
+  rButton.append("Remove")
+  ul.appendChild(rButton)
+  removal(i, rButton)
+}
+
+function removal(i, button) {
   const taskList = new TaskList();
-
   const listContainer = document.getElementById("list");
   const textInput = document.querySelector("#new-task-description")
   const submitForm = document.querySelector("#create-task-form")
@@ -14,11 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     listContainer.append(taskList.render())
   };
 
-  submitForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-    let taskListItem = new TaskListItem(textInput.value)
-    renderApp()
-  })
-
+  button.addEventListener("click", () => {
+  console.log("We got here!!")
+  TaskListItem.all.splice(i, 1)
   renderApp()
-});
+  })
+}
