@@ -1,6 +1,6 @@
 class TaskListItem {
 
-    constructor(description, duedate, priority='high'){
+    constructor(description, duedate, priority='medium'){
         this.element = document.createElement('li')
         this.priority = priority
         this.duedate = duedate
@@ -18,16 +18,18 @@ class TaskListItem {
         }
     }
 
+    //delete item from HTML page, also from array
     delete(){
         this.element.remove()
         let index = allTasks.indexOf(this)
         allTasks.splice(index, 1)
     }
 
-    static sort(){
+    //sorting function for all items, sort from high to low
+    static sortedList(){
         let sorted = []
         allTasks.forEach(function(item){
-            if (item.priority === 'low'){
+            if (item.priority === 'high'){
                 sorted.push(item)
             }
         })
@@ -37,15 +39,11 @@ class TaskListItem {
             }
         })
         allTasks.forEach(function(item){
-            if (item.priority === 'high'){
+            if (item.priority === 'low'){
                 sorted.push(item)
             }
         })
-        sorted.forEach(function(item){
-            TaskList.addListItem()
-        }
- 
+        return sorted
     }
-
 }
 const allTasks = []

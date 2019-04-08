@@ -1,7 +1,7 @@
 class TaskList {
   
     constructor(){
-        this.element = document.createElement('ol')
+        this.element = document.createElement('ul')
     }
 
     addListItem(newItem){
