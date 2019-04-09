@@ -7,9 +7,11 @@ class TaskList {
   render(){
     const ul = document.createElement("ul")
     this.items.forEach(function(taskListItem, i){
-    ul.appendChild(taskListItem.description)
+    let li =  ul.appendChild(taskListItem.description)
     removeButton(ul, i)
+    prioritySelection(li, taskListItem)
     })
+    prioritySorter(ul)
     return ul
   }
 }
