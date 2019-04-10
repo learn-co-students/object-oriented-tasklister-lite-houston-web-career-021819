@@ -6,16 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add Form Behavior Here!
   const form = document.querySelector('#create-task-form')
-  form.addEventListener('submit', function(e){
-    e.preventDefault()
-    let description = document.querySelector('#new-task-description')
-    let duedate = document.querySelector('#new-task-duedate')
-    taskList.newItem(description, duedate.value)
-    description.value = ""
-      })
+  let description = document.querySelector('#new-task-description')
+  let duedate = document.querySelector('#new-task-duedate')
+  let duration = document.querySelector('#new-task-duration')
+    form.addEventListener('submit', function(e){
+      e.preventDefault()
+      if (description.value !== "") {
+        taskList.newItem(description.value, duedate.value, duration.value)      
+        // description.value = ""
+        // duedate.value = ""
+        // duration.value = ""
+      }
+    })
+
   // Sorting button
   const sortBtn = document.createElement('button')
-  sortBtn.innerText = "Sorting by priority"
+  sortBtn.innerHTML = "Sorting by Priority (High-Low)"
   form.append(sortBtn)
   sortBtn.addEventListener('click',function(e){
     e.preventDefault()

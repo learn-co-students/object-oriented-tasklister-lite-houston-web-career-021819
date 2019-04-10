@@ -1,10 +1,12 @@
 class TaskListItem {
 
-    constructor(description, duedate, priority='medium'){
+    constructor(description, duedate, duration, priority='high'){
         this.element = document.createElement('li')
-        this.priority = priority
-        this.duedate = duedate
-        this.element.innerText = `${description}, ${duedate}`
+        this.description = description;
+        this.priority = priority;
+        this.duedate = duedate;
+        this.duration = duration;
+        this.element.innerHTML = `Description: ${this.description}` + "<br>" + `Due date: ${this.duedate}` + "<br>" + `Duration: ${this.duration}` + "<br>" 
         allTasks.push(this)
     }
 
